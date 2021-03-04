@@ -1,0 +1,4 @@
+<!-- 用户授权界面 -->
+<view class="auth">
+  <button type="primary" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权</button>
+</view>

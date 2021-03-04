@@ -1,0 +1,17 @@
+/* 微信小程序中不支持通配符*/
+page,view,text,swiper,swiper-item,image,navigator,button{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: 0;
+  outline: none;
+}
+
+page{
+  /* 定义主题颜色 */
+  --themeColor:#fac42a;
+  font-size: 28rpx;
+}
+
+/* 引入阿里字体 */
+@import '/styles/iconfont.wxss'

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "SearchInput":"../../components/SearchInput/SearchInput",
+    "van-image": "@vant/weapp/image/index"
+  },
+  "navigationBarTitleText": "优选团购"
+}

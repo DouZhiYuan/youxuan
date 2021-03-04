@@ -1,0 +1,33 @@
+page{
+  background-color: #f2f2f2;
+}
+.order_info{
+  padding: 20rpx;
+  background-color: #ffffff;
+  border-bottom: 15rpx solid #f2f2f2;
+}
+.order_name{
+  line-height: 50rpx;
+  font-size: 30rpx;
+}
+
+.order_price{
+  line-height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.order_price text:nth-last-child(1){
+  color: var(--themeColor);
+  font-size: 40rpx;
+}
+
+.order_action navigator{
+  padding: 20rpx;
+  text-align: center;
+  width: 60%;
+  background-color: var(--themeColor);
+  margin: 20rpx auto;
+  border-radius: 10rpx;
+  color: #ffffff;
+}

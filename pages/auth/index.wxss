@@ -1,0 +1,5 @@
+button{
+  margin-top: 50rpx;
+  width: 80%;
+  margin: 50rpx auto;
+}

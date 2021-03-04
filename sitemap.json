@@ -1,0 +1,7 @@
+{
+  "desc": "毕业设计",
+  "rules": [{
+  "action": "allow",
+  "page": "*"
+  }]
+}

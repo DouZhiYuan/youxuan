@@ -1,0 +1,93 @@
+<!-- 添加收货地址 -->
+<view class="add_revice_address">
+  <!-- 收货地址不存在时显示按钮，反之显示地址 -->
+  <view class="address" wx:if="{{address.userName}}" class="user_info_base" bindtap="changeAddress">
+    <view class="user_info">
+      <view>收货人：{{address.userName}}</view>
+      <view>{{address.provinceName + address.cityName + address.countyName + address.detailInfo}}</view>
+    </view>
+    <view class="address_phone">{{address.telNumber}}</view>
+  </view>
+  
+  <view class="btn" wx:else>
+    <button type="primary" plain bindtap="handleAddress">
+      获取收货地址
+    </button>
+  </view>
+
+</view>
+
+  <!-- 购物车数据展示 -->
+  <view class="cart_content">
+    <!-- 标题 -->
+    <view class="cart_title">
+      <view>购物车</view>
+      <view bindtap="clearCart">{{cart.length>0?'清空购物车':''}}</view>
+    </view>
+
+    <!-- 主要信息 -->
+    <view class="cart_main" wx:if="{{cart.length > 0}}">
+      <!-- 每一条数据 -->
+      <view class="cart_item" wx:for="{{cart}}" wx:key="index">
+        <!-- 复选框 -->
+        <view class="cart_chk_wrap">
+          <checkbox-group bindchange="handleItem" data-id="{{item.goods_id}}">
+            <checkbox checked="{{item.checked}}"></checkbox>
+          </checkbox-group>
+        </view>
+
+        <!-- 商品图片 -->
+        <navigator class="cart_img_wrap">
+          <image mode="widthFix" 
+          src="{{item.pics.length > 0 ? item.pics[0].pics_mid : 'https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3926407720,2167302872&fm=26&gp=0.jpg'}}"></image>
+        </navigator>
+
+        <!-- 商品信息 -->
+        <view class="cart_info_wrap">
+          <view class="goods_name">
+            {{item.goods_name}}
+          </view>
+          <view class="goods_price_wrap">
+            <view class="goods_price">
+              ￥{{item.goods_price}}
+            </view>
+            <view class="cart_num_tool">
+              <view class="num_edit" bindtap="changeNum" data-count="{{-1}}" data-id="{{item.goods_id}}">-</view>
+              <view class="goods_num">{{item.num}}</view>
+              <view class="num_edit" bindtap="changeNum" data-count="{{1}}" data-id="{{item.goods_id}}">+</view>
+            </view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+    <view wx:else class="cart_null">
+      <image mode="widthFix" src="https://i.loli.net/2020/09/27/67P3HtSifGs2hgm.png"></image>
+      <navigator open-type="switchTab" url="/pages/category/index">去添加点...</navigator>
+    </view>
+  </view>
+
+  <!-- 底部工具栏 -->
+  <view class="footer_tool">
+    <!-- 全选 -->
+    <view class="all_chk_wrap">
+      <checkbox-group bindchange="allChange">
+        <checkbox checked="{{allChecked}}">全选</checkbox>
+      </checkbox-group>
+    </view>
+
+    <!-- 总价格 -->
+    <view class="total_price_wrap">
+      <view class="total_price">
+        合计：<text class="total_price_text">{{'￥'+totalPrice}}</text>
+      </view>
+      <view>包含运费</view>
+    </view>
+
+    <!-- 计算 -->
+    <view class="order_pay_wrap" bindtap="handlePay">
+      结算({{totalNum}})
+    </view>
+
+  </view>
+

@@ -1,0 +1,14 @@
+<view class="order">
+  <view class="order_wrap" wx:if="{{order.length > 0}}">
+    <view wx:for="{{order}}" class="order_info" wx:key="index" data-id="{{item.goods_id}}" bindtap="goGoodsDetail">
+      <view class="order_name">{{item.goods_name}}</view>
+      <view class="order_price">
+        <text>订单价格</text>
+        <text>{{'￥'+ item.goods_price * item.num}}</text>
+      </view>
+    </view>
+  </view>
+  <view wx:else class="order_action">
+    <navigator open-type="switchTab" url="/pages/cart/index">您还未下过单,点击尝试一下吧</navigator>
+  </view>
+</view>

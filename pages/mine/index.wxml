@@ -1,0 +1,95 @@
+<view class="user_info_wrap">
+  <view class="user_img_wrap" wx:if="{{userInfo.nickName}}">
+    <image class="user_bg" src="{{userInfo.avatarUrl}}"></image>
+    <view class="user_info" bindtap="cancelLogin">
+      <image class="user_icon" src="{{userInfo.avatarUrl}}"></image>
+      <view class="user_name">{{userInfo.nickName}}</view>
+    </view>
+  </view>
+  <view class="user_btn" wx:else>
+    <navigator url="/pages/login/index">登录</navigator>
+  </view>
+</view>
+
+<view class="user_content">
+  <view class="user_main">
+    <!-- 历史足迹 -->
+    <view class="his_wrap">
+      <navigator url="/pages/collect/index">
+        <view class="his_num">0</view>
+        <view class="his_name">收藏的店铺</view>
+      </navigator>
+      <navigator url="/pages/collect/index">
+        <view class="his_num">{{collect_num}}</view>
+        <view class="his_name">收藏的商品</view>
+      </navigator>
+      <navigator url="/pages/collect/index">
+        <view class="his_num">0</view>
+        <view class="his_name">关注的商品</view>
+      </navigator>
+      <navigator url="/pages/collect/index">
+        <view class="his_num">0</view>
+        <view class="his_name">我的足迹</view>
+      </navigator>
+    </view>
+
+    <!-- 我的订单 -->
+    <view class="orders_wrap">
+      <view class="order_title">我的订单</view>
+      <view class="order_content">
+        <navigator url="/pages/order/index">
+          <view class="incofont">
+            <van-icon name="completed" color="#eb4450" size="40rpx" />
+          </view>
+          <view class="order_name">全部订单</view>
+        </navigator>
+        <navigator url="/pages/order/index">
+          <view class="incofont">
+            <van-icon name="balance-pay" color="#eb4450" size="40rpx" />
+          </view>
+          <view class="order_name">待付款</view>
+        </navigator>
+        <navigator url="/pages/order/index">
+          <view class="incofont">
+            <van-icon name="send-gift-o" color="#eb4450" size="40rpx" />
+          </view>
+          <view class="order_name">待收货</view>
+        </navigator>
+        <navigator url="/pages/order/index">
+          <view class="incofont">
+            <van-icon name="gold-coin-o" color="#eb4450" size="40rpx" />
+          </view>
+          <view class="order_name">退款/退货</view>
+        </navigator>
+      </view>
+    </view>
+
+    <!-- 收货地址管理 -->
+    <view class="address_wrap" bindtap="addressManagement">
+      收货地址管理
+    </view>
+
+    <!-- 其他应用信息 -->
+    <view class="app_info_wrap">
+      <view class="app_info_item app_contact" bindtap="callCustomer">
+        <text>联系客服</text>
+        <text>18137573865</text>
+      </view>
+      <view class="app_info_item">
+        <view>意见反馈</view>
+        <button open-type="feedback">
+        </button>
+      </view>
+      <view class="app_info_item">
+        关于我们
+      </view>
+    </view>
+
+    <!-- 推荐 -->
+    <view class="recommend">
+      把应用推荐给其他人
+    </view>
+    
+  </view>
+</view>
+

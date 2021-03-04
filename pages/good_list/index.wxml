@@ -1,0 +1,34 @@
+<view class="list">
+  <!-- 顶部搜索框 -->
+  <SearchInput></SearchInput>
+
+  <!-- TabBar导航按钮 -->
+  <TabBar tabs="{{tabs}}" bindchangeCurrentindex="changeCurrentindex">
+    <block wx:if="{{tabs[0].isActive}}">
+      <view class="first" wx:for="{{goodsList}}" wx:key="index">
+        <navigator url="/pages/good_detail/index?goods_id={{item.goods_id}}" class="goods_item">
+          <!-- 左侧的图片 -->
+            <view class="goods_img">
+              <image mode="widthFix" src="{{item.goods_small_logo ? item.goods_small_logo : 'http://image4.suning.cn/uimg/b2c/newcatentries/0000000000-000000000606013705_1_400x400.jpg'}}"></image>
+            </view>
+
+          <!-- 右侧商品信息 -->
+            <view class="goods_info">
+              <view class="goods_name">{{item.goods_name}}</view>
+              <view class="goods_price">￥{{item.goods_price}}</view>
+            </view>
+        </navigator>
+      </view>
+    </block>
+
+    <block wx:if="{{tabs[1].isActive}}">
+      销量，无接口数据
+    </block>
+
+    <block wx:if="{{tabs[2].isActive}}">
+      价格，无接口数据
+    </block>
+  </TabBar>
+
+
+</view>

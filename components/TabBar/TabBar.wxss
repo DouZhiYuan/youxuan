@@ -1,0 +1,24 @@
+.tabs{
+  background-color: #ffffff;
+}
+.tabs .tabs_title{
+  height: 80rpx;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  margin-bottom: 15rpx;
+}
+.tabs_title .title_item{
+  height: 80rpx;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tabs_title .title_item text{
+  padding: 0 10rpx 10rpx 10rpx;
+}
+.tabs_title .title_item .active{
+  border-bottom: 4rpx solid var(--themeColor);
+  color: var(--themeColor);
+}

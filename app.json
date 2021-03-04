@@ -1,0 +1,56 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/category/index",
+    "pages/good_list/index",
+    "pages/good_detail/index",
+    "pages/cart/index",
+    "pages/collect/index",
+    "pages/order/index",
+    "pages/search/index",
+    "pages/mine/index",
+    "pages/login/index",
+    "pages/auth/index",
+    "pages/pay/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fac42a",
+    "navigationBarTitleText": "社区团购平台",
+    "navigationBarTextStyle":"white",
+    "backgroundColor": "#ffffff"
+
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "icon/index.png",
+        "selectedIconPath": "icon/index-active.png"
+      },
+      {
+        "pagePath": "pages/category/index",
+        "text": "分类",
+        "iconPath": "icon/category.png",
+        "selectedIconPath": "icon/category-active.png"
+      },
+      {
+        "pagePath": "pages/cart/index",
+        "text": "团购",
+        "iconPath": "icon/cart.png",
+        "selectedIconPath": "icon/cart-active.png"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "我的",
+        "iconPath": "icon/mine.png",
+        "selectedIconPath": "icon/mine-active.png"
+      }
+    ],
+    "color": "#aaaaaa",
+    "selectedColor": "#fac42a",
+    "backgroundColor": "#ffffff"
+  },
+  "sitemapLocation": "sitemap.json"
+}

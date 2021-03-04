@@ -1,0 +1,87 @@
+<view class="detail" >
+  <!-- 顶部轮播图 -->
+  <view class="detail_swiper" wx:if="{{goodsDetailInfo.pics.length > 0}}">
+    <swiper autoplay circular indicator-dots>
+      <swiper-item wx:for="{{goodsDetailInfo.pics}}" wx:key="pics_id" bindtap="handlePreviewImage" data-url="{{item.pics_mid}}">
+        <image mode="widthFix" src="{{item.pics_mid}}"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <view wx:else class="detail_swiper">
+    <swiper autoplay circular indicator-dots indicator-color="#ffffff" indicator-active-color="#fff">
+      <swiper-item wx:for="{{swiperImg}}" wx:key="*this" bindtap="handlePreviewImage" data-url="{{item}}">
+        <image mode="widthFix" src="{{item}}"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <!-- 轮播图下方的商品信息 -->
+  <view class="goods_price">
+    ￥{{goodsDetailInfo.goods_price}}
+  </view>
+  
+  <view class="goods_name_collect">
+    <view class="goods_name">
+      {{goodsDetailInfo.goods_name}}
+    </view>
+    <view class="goods_collect" bindtap="collectBtn">
+      <van-icon name="like" size="40rpx" color="{{isCollect ? '#eb4450':'#cccccc'}}" />
+      <view class="collect_text">收藏</view>
+    </view>
+  </view>
+
+  <!-- 图文详情 -->
+  <view class="goods_info">
+    <!-- 标题 -->
+    <view class="goods_info_title">
+      <text>图文详情</text>
+    </view>
+
+    <!-- 内容 -->
+    <view class="goods_info_content">
+      <rich-text nodes="{{goodsDetailInfo.goods_introduce}}"></rich-text>
+    </view>
+
+  </view>
+
+  <!-- 底部工具栏 -->
+  <view class="bom_tool">
+
+    <van-goods-action>
+    
+      <button open-type="contact">
+        <van-goods-action-icon icon="chat-o" text="客服" />
+      </button>
+    
+      <button open-type="share">
+        <van-goods-action-icon icon="share" text="分享" />
+      </button>
+
+      <navigator open-type="switchTab" url="/pages/cart/index" >
+        <van-goods-action-icon icon="cart-o" text="购物车" info="{{goods_count}}" />
+      </navigator>
+
+      <van-goods-action-button text="加入购物车" type="warning" bind:click="addToCart" />
+
+      <van-goods-action-button text="立即购买" bind:click="onTimeBy" />
+    </van-goods-action>
+  </view>
+</view>
+
+  <!-- 立即购买 -->
+  <view class="time-buy" wx:if="{{isShow}}">
+    <view class="del-buy" bindtap="showAndHidden">×</view>
+    <!-- 商品信息展示 -->
+    <view class="good-info">
+      <view class="good-left">
+        <image mode="widthFix" src="{{goodsDetailInfo.pics.length > 0 ? goodsDetailInfo.pics[0].pics_mid : 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1601353189011&di=9e289507ca76d7268914d4caede436f7&imgtype=0&src=http%3A%2F%2Fattach.bbs.miui.com%2Fforum%2F201111%2F01%2F131423x5n9f11x30s9zfqm.jpg'}}"></image>
+      </view>
+      <view class="good-right">
+        <view class="good-price">{{'￥' + goodsDetailInfo.goods_price}}</view>
+        <view class="good-num">{{'库存数'+ goodsDetailInfo.goods_number +'件'}}</view>
+        <view class="good-only">限购一件</view>
+      </view>
+    </view>
+    <button type="warn" bindtap="goPay">确认</button>
+  </view>
